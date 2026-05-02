@@ -204,9 +204,7 @@ app.delete("/delete-usr-detail/:id", verifyToken, async (req, res) => {
     }
 })
 
-app.listen(port, () => {
-    console.log(`Server running on ${port} port.`)
-})
+
 
 function verifyToken (req, res, next) {
     const authHeader = req.headers["authorization"]
