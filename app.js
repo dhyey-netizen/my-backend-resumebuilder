@@ -27,13 +27,16 @@ async function startServer() {
         db = client.db("Project")
         console.log("MongoDB Connected 🔥")
 
-        app.listen(PORT, () => {
-            console.log(`Server running on ${PORT} 🚀`)
+        // 🔥 START SERVER INSIDE THIS FUNCTION
+        app.listen(process.env.PORT || 8080, () => {
+            console.log(`Server running on ${process.env.PORT} 🚀`)
         })
+
     } catch (err) {
-        console.error("DB connection failed:", err)
+        console.error(err)
     }
 }
+
 
 startServer()
 
