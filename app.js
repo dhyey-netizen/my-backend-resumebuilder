@@ -4,7 +4,7 @@ const { MongoClient } = require('mongodb')
 const cors = require('cors')
 const url = "mongodb://localhost:27017/"
 const jwt = require('jsonwebtoken')
-const port = 8080
+const PORT = process.env.PORT || 8080;
 const app = express()
 
 const SECRET_KEY = 'priyansh1017'
@@ -226,3 +226,6 @@ function verifyToken (req, res, next) {
         return res.status(403).json({ msg: "Invalid Token" })
     }
 }
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
